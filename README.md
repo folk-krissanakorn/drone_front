@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#  Drone Portal Frontend
+**Frontend ของระบบ Drone Monitoring**  
+สร้างด้วย **Next.js + TailwindCSS + Axios**  
+ใช้แสดงข้อมูลโดรน, สถานะ, และบันทึกการบิน (Logs)  
+เชื่อมต่อกับ Backend ผ่าน REST API ที่ deploy บน Render
 
-## Getting Started
+---
 
-First, run the development server:
+##  เทคโนโลยีที่ใช้
+
+| Stack | รายละเอียด |
+|-------|-------------|
+| **Next.js 14** | เฟรมเวิร์ก React สำหรับ SSR / CSR |
+| **Tailwind CSS** | ระบบจัดการ UI ที่เร็วและยืดหยุ่น |
+| **Axios** | ใช้เชื่อมต่อ REST API |
+| **Vercel** | ระบบ deploy Frontend สำหรับ Next.js โดยเฉพาะ |
+
+---
+
+##  การติดตั้งและเริ่มต้นใช้งาน (Run Local)
 
 ```bash
+# 1. ดาวน์โหลดโค้ดจาก GitHub
+git clone 
+
+# 2. เข้าโฟลเดอร์โปรเจกต์
+cd frontend-drone
+
+# 3. ติดตั้ง dependencies
+npm install
+
+# 4. รันเซิร์ฟเวอร์ทดสอบ
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+การ Deploy ขึ้น Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ไปที่ https://vercel.com
 
-## Learn More
+กด "New Project"
 
-To learn more about Next.js, take a look at the following resources:
+เลือก repo frontend ของคุณจาก GitHub
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+ตั้งค่า Environment Variables:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+VITE_API_URL=https://drone-back-nuhs.onrender.com
 
-## Deploy on Vercel
+VITE_DRONE_ID=3001
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+กด Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+https://frontdrone.vercel.app
