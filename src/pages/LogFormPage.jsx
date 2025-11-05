@@ -8,6 +8,9 @@ export default function LogFormPage() {
 
   const config = JSON.parse(localStorage.getItem("droneConfig") || "{}");
 
+  // ✅ ใช้ API URL จาก .env
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -18,10 +21,14 @@ export default function LogFormPage() {
         country: config.country,
         celsius: Number(celsius),
       };
-      await axios.post("/logs", payload);
+
+      // ✅ ใช้ URL เต็มตรงนี้
+      await axios.post(`${API_URL}/logs`, payload);
+
       setMessage("✅ Log saved successfully!");
       setCelsius("");
     } catch (err) {
+      console.error(err);
       setMessage("❌ Failed to save log.");
     } finally {
       setLoading(false);
