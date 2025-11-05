@@ -1,4 +1,4 @@
-# Frontend (React + Vite) - Simple UI
+# Frontend
 
 Run:
 ```
@@ -7,4 +7,3 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:5173
