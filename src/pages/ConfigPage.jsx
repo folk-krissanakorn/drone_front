@@ -7,15 +7,18 @@ export default function ConfigPage() {
   const [drone, setDrone] = useState(null);
   const [error, setError] = useState(null);
 
+  // ✅ ใช้ URL จาก .env (ยืดหยุ่นกว่า)
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     axios
-      .get(`/configs/${id}`)
+      .get(`${API_URL}/configs/${id}`)
       .then((res) => {
         setDrone(res.data);
         localStorage.setItem("droneConfig", JSON.stringify(res.data));
       })
       .catch((err) => setError(err.message));
-  }, [id]);
+  }, [id, API_URL]);
 
   if (error)
     return (
